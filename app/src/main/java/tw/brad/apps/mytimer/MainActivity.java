@@ -55,12 +55,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doLap(){
-
+        HashMap<String,String> row = new HashMap<>();
+        row.put(from[0], clock.getText().toString());
+        data.add(0, row);
+        adapter.notifyDataSetChanged();
     }
 
     private void doReset(){
         counter = 0;
         uiHandler.sendEmptyMessage(0);
+        data.clear();
+        adapter.notifyDataSetChanged();
     }
 
     public void doRight(View view) {

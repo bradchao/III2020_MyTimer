@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="LAP"
+            android:text="RESET"
             android:onClick="doLeft"
             />
         <Button
