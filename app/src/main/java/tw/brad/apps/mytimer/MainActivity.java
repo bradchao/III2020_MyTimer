@@ -1,8 +1,12 @@
 package tw.brad.apps.mytimer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.Contacts;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void doReset(){
         counter = 0;
+        uiHandler.sendEmptyMessage(0);
     }
 
     public void doRight(View view) {
@@ -65,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             counter++;
             Log.v("bradlog", "counter = " + counter);
+            //clock.setText(counter + "");
+            uiHandler.sendEmptyMessage(0);
+        }
+    }
+    private UIHandler uiHandler = new UIHandler();
+    private class UIHandler extends Handler {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            clock.setText(counter + "");
         }
     }
 
