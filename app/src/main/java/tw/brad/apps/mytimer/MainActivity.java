@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doReset(){
-
+        counter = 0;
     }
 
     public void doRight(View view) {
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int counter;    // 0
     private Timer timer = new Timer();
+    private MyTask myTask;
 
     private class MyTask extends TimerTask {
         @Override
@@ -68,11 +69,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doStart(){
-        timer.schedule(new MyTask(), 10, 10);
+        myTask = new MyTask();
+        timer.schedule(myTask, 10, 10);
     }
 
     private void doStop(){
-
+        if (myTask != null){
+            myTask.cancel();
+        }
     }
 
     @Override
