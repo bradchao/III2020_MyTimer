@@ -10,8 +10,12 @@ import android.provider.Contacts;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button leftBtn, rightBtn;
     private boolean isStart;
     private TextView clock;
+    private ListView lapList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,17 @@ public class MainActivity extends AppCompatActivity {
         leftBtn = findViewById(R.id.leftBtn);
         rightBtn = findViewById(R.id.rightBtn);
         clock = findViewById(R.id.timer);
+        lapList = findViewById(R.id.lapList);
+        initLapList();
+    }
 
+    private SimpleAdapter adapter;
+    private LinkedList<HashMap<String,String>> data = new LinkedList<>();
+    private String[] from = {"time"};
+    private int[] to = {R.id.lapitem_time};
+    private void initLapList(){
+        adapter = new SimpleAdapter(this, data, R.layout.lapitem, from, to);
+        lapList.setAdapter(adapter);
     }
 
     public void doLeft(View view) {
