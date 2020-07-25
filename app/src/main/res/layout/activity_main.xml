@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="36sp"
-        android:text="1:20:30.7"
+        android:text="0:0:0.0"
         android:gravity="center_horizontal"
         />
     <LinearLayout
