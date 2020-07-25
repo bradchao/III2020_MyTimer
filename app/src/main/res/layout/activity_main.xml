@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="36sp"
@@ -21,20 +22,25 @@
         android:orientation="horizontal"
         >
         <Button
+            android:id="@+id/leftBtn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="LAP"
+            android:onClick="doLeft"
             />
         <Button
+            android:id="@+id/rightBtn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="START"
+            android:onClick="doRight"
             />
 
     </LinearLayout>
     <ListView
+        android:id="@+id/lapList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
